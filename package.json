@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-quran",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Quran MCP — Al-Quran Cloud API.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-6e9ae8962cf684c691b5abce59dd2ea46214ebebc9b79b4ea31d26736a79bbfc",
-    "sourceCommit": "00c836ddeaecbdd581dcfb0fb1842efea104006e"
+    "sourceHash": "v1-e4522a68e84147bce31c7d4d7bb8852657fe1bfc6bead2357e6a09bf55652e08",
+    "sourceCommit": "6fe8fb3e01138dfc4ebe7d5c246503aab9278d06"
   }
 }
