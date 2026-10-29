@@ -1,0 +1,77 @@
+[
+  {
+    "name": "list_surahs",
+    "description": "List all 114 surahs (chapters) of the Quran with their Arabic name, English name, English translation, ayah (verse) count, and revelation type (Meccan/Medinan).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_surah",
+    "description": "Get the full text of a surah (chapter) of the Quran by its number (1-114). Returns every ayah (verse) in the chosen edition. Use an English translation edition (e.g. en.asad, en.sahih) for English, or quran-uthmani for the Arabic text.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "number",
+          "description": "Surah number, 1-114."
+        },
+        "edition": {
+          "type": "string",
+          "description": "Edition identifier. Default 'en.asad' (English translation). Other examples: 'en.sahih' (English), 'quran-uthmani' (Arabic)."
+        }
+      },
+      "required": [
+        "number"
+      ]
+    }
+  },
+  {
+    "name": "get_ayah",
+    "description": "Get a single ayah (verse) of the Quran by reference — either surah:ayah (e.g. \"2:255\" for Ayat al-Kursi) or a global ayah number (1-6236). Returns the verse text in the chosen edition (translation like en.asad / en.sahih, or Arabic via quran-uthmani).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "type": "string",
+          "description": "Verse reference: \"surah:ayah\" like \"2:255\", or a global ayah number like \"262\"."
+        },
+        "edition": {
+          "type": "string",
+          "description": "Edition identifier. Default 'en.asad'. Use 'quran-uthmani' for Arabic."
+        }
+      },
+      "required": [
+        "reference"
+      ]
+    }
+  },
+  {
+    "name": "search_quran",
+    "description": "Search the Quran for a keyword across ayahs (verses). Returns matching verses (up to 30) with their surah (chapter) and ayah number. Defaults to the en.asad English translation; pass another edition to search a different translation or Arabic (quran-uthmani).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "Word or phrase to search for."
+        },
+        "edition": {
+          "type": "string",
+          "description": "Edition to search. Default 'en.asad'."
+        },
+        "surah": {
+          "type": [
+            "number",
+            "string"
+          ],
+          "description": "Restrict to a surah number, or 'all' for the whole Quran (default)."
+        }
+      },
+      "required": [
+        "keyword"
+      ]
+    }
+  }
+]

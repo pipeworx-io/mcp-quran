@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-quran",
-  "version": "0.1.2",
-  "description": "Quran MCP — Al-Quran Cloud API.",
+  "version": "0.2.0",
+  "description": "Quran MCP — Al-Quran Cloud API. Surahs (chapters), ayahs (verses), translations, and full-text search. Keyless.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-quran": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "quran"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-quran.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/quran",
   "pipeworx": {
-    "sourceHash": "v1-e4522a68e84147bce31c7d4d7bb8852657fe1bfc6bead2357e6a09bf55652e08",
-    "sourceCommit": "6fe8fb3e01138dfc4ebe7d5c246503aab9278d06"
+    "mode": "gateway",
+    "slug": "quran",
+    "gatewaySlug": "quran",
+    "sourceHash": "v1-64cbc1d7bcb48aaae844587a831bfe4ad23fd4582bf9dc51cc7f48b14c2f756c",
+    "sourceCommit": "6bae4cfa7b6a73bbe014dc8820a19c80c842b21e"
   }
 }
